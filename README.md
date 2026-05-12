@@ -511,6 +511,7 @@ Thanks to all the developers who have contributed to this project:
 <a href="https://github.com/YuHaiA"><img src="https://wsrv.nl/?url=github.com/YuHaiA.png&mask=circle" width="80" title="YuHaiA" alt="YuHaiA"></a>
 <a href="https://github.com/haocenchen-debug"><img src="https://wsrv.nl/?url=github.com/haocenchen-debug.png&mask=circle" width="80" title="haocenchen-debug" alt="haocenchen-debug"></a>
 
+[![Powered by DartNode](https://dartnode.com/branding/DN-Open-Source-sm.png)](https://dartnode.com "Powered by DartNode - Free VPS for Open Source")
 ## Terms of Use & License
 
 This project is a **"Source-Available"** private project, licensed under the **CC BY-NC 4.0** (Creative Commons Attribution-NonCommercial 4.0 International) license.

@@ -788,7 +788,7 @@ def update_account_push_info(emails: list, platform: str, mode: str = "overwrite
     try:
         now_str = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         target_platform = platform.strip().upper()
-        target_prefixes = tuple(str(e).strip() for e in emails if str(e).strip())
+        target_prefixes = tuple(str(e).strip().lower() for e in emails if str(e).strip())
         if not target_prefixes:
             return
 
@@ -804,7 +804,7 @@ def update_account_push_info(emails: list, platform: str, mode: str = "overwrite
                 if not db_email:
                     continue
 
-                if db_email.startswith(target_prefixes):
+                if db_email.strip().lower().startswith(target_prefixes):
                     current_raw = row[1] if row[1] else ""
 
                     if mode == "sync":

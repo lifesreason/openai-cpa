@@ -275,10 +275,10 @@ async def clear_all_accounts_api(token: str = Depends(verify_token)):
 
 
 def _background_sync_cloud_data(combined_data):
-    global _last_cloud_sync_time
-    if time.time() - _last_cloud_sync_time < 30:
-        return
-    _last_cloud_sync_time = time.time()
+    # global _last_cloud_sync_time
+    # if time.time() - _last_cloud_sync_time < 30:
+    #     return
+    # _last_cloud_sync_time = time.time()
     try:
         cpa_emails = [x["credential"] for x in combined_data if x["account_type"] == "cpa"]
         sub_emails = [x["credential"] for x in combined_data if x["account_type"] == "sub2api"]

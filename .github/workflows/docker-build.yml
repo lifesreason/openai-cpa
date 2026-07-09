@@ -1,9 +1,12 @@
-name: Build and Push Wenfxl-register Docker Image
+name: Build and Push Docker Image
 
 on:
   push:
-    tags:
-      - 'v*'
+    branches:
+      - main
+    paths-ignore:
+      - '*.md'
+      - 'docs/**'
   workflow_dispatch:
 
 jobs:
@@ -25,15 +28,6 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Extract Docker metadata
-        id: meta
-        uses: docker/metadata-action@v5
-        with:
-          images: wenfxl/wenfxl-codex-manager
-          tags: |
-            type=semver,pattern={{version}}
-            type=raw,value=latest
-
       - name: Build and Push
         uses: docker/build-push-action@v5
         with:
@@ -41,7 +35,6 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: lifesreason/wenfxl-codex-manager:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max

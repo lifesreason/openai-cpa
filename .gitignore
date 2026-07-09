@@ -21,8 +21,9 @@ config.yaml
 utils/sentinel.py
 
 data
-utils/auth_core/
-!utils/auth_core.pyd
+utils/auth_core/*.so
+utils/auth_core/*.pyc
+utils/auth_core/__pycache__/
 test.py
 test_register.py
 test_register2.py

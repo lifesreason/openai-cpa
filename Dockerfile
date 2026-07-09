@@ -12,7 +12,7 @@ RUN pip install --no-cache-dir --upgrade pip && \
 
 COPY . .
 
-RUN rm -rf utils/auth_core/*.py 2>/dev/null || true
+
 
 EXPOSE 8000
 ENV PYTHONUNBUFFERED=1

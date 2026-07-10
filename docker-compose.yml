@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   codex-web:
-    image: lifesreason/wenfxl-codex-manager:latest
+    image: ghcr.io/lifesreason/openai-cpa:latest
     container_name: wenfxl_codex_manager
     ports:
       - "${WEB_PORT:-8000}:8000"

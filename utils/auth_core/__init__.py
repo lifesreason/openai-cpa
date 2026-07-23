@@ -179,6 +179,27 @@ def email_jwt(token: str) -> dict:
 
 
 # ---------------------------------------------------------------------------
+# _generate_codex_auth — Codex Agent Identity upgrade (v17.1.0+)
+# ---------------------------------------------------------------------------
+
+def _generate_codex_auth(*, access_token: Any = None, proxies=None) -> dict:
+    """
+    Upgrade an account session into Codex Agent Identity format.
+
+    The compiled auth_core binary talks to OpenAI (codex-cli / agent_identity
+    flow).  This stub cannot complete the real upgrade; it raises so the
+    register pipeline treats the account as failed when the feature is enabled,
+    matching the upstream ``except: return None, None`` path rather than
+    silently writing a fake identity.
+    """
+    raise NotImplementedError(
+        "auth_core stub: _generate_codex_auth is unavailable without the "
+        "compiled auth_core module (ENABLE_CODEX_AGENT_IDENTITY requires the "
+        "real binary)"
+    )
+
+
+# ---------------------------------------------------------------------------
 # __all__ — matches the original module's public API
 # ---------------------------------------------------------------------------
 __all__ = [
@@ -194,4 +215,5 @@ __all__ = [
     "sys_node_bulk_silent",
     "email_jwt",
     "sys_team_domain_verify",
+    "_generate_codex_auth",
 ]
